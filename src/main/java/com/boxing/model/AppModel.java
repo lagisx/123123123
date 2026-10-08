@@ -21,6 +21,9 @@ public class AppModel {
 
     private AppModel() {}
 
+
+
+
     public void refresh() {
         status.set("");
         Async.run(repo::loadWorkouts, workouts::setAll, status::set);
