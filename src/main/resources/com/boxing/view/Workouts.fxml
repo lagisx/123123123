@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.lang.String?>
+<VBox spacing="14.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.boxing.controller.WorkoutsController">
+    <padding><Insets top="24.0" right="24.0" bottom="24.0" left="24.0"/></padding>
+
+    <Label text="Программы тренировок" styleClass="title"/>
+
+    <TableView fx:id="table" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="titleCol" text="Название" prefWidth="220.0"/>
+            <TableColumn fx:id="levelCol" text="Уровень" prefWidth="110.0"/>
+            <TableColumn fx:id="roundsCol" text="Раунды" prefWidth="80.0"/>
+            <TableColumn fx:id="minutesCol" text="Минуты" prefWidth="80.0"/>
+            <TableColumn fx:id="descCol" text="Описание" prefWidth="300.0"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="8.0" alignment="CENTER_LEFT">
+        <TextField fx:id="nameField" promptText="Название"/>
+        <ComboBox fx:id="levelBox">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Новичок"/>
+                    <String fx:value="Средний"/>
+                    <String fx:value="Профи"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <Label text="Раунды:"/>
+        <Spinner fx:id="roundsSpinner" prefWidth="80.0"/>
+        <Label text="Мин:"/>
+        <Spinner fx:id="minutesSpinner" prefWidth="90.0"/>
+        <TextField fx:id="descField" promptText="Описание" HBox.hgrow="ALWAYS"/>
+        <Button text="Добавить" onAction="#onAdd"/>
+    </HBox>
+
+    <HBox spacing="8.0">
+        <Button text="✔ Я потренировался" onAction="#onLog"/>
+        <Button text="Удалить" styleClass="secondary" onAction="#onDelete"/>
+    </HBox>
+</VBox>

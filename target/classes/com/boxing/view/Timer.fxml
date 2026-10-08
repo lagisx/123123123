@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="14.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.boxing.controller.TimerController">
+    <padding><Insets top="24.0" right="24.0" bottom="24.0" left="24.0"/></padding>
+
+    <Label text="Таймер раундов" styleClass="title"/>
+
+    <HBox spacing="10.0" alignment="CENTER_LEFT">
+        <Label text="Раунды:"/>
+        <Spinner fx:id="roundsSpinner" prefWidth="80.0"/>
+        <Label text="Бой (сек):"/>
+        <Spinner fx:id="workSpinner" prefWidth="100.0"/>
+        <Label text="Отдых (сек):"/>
+        <Spinner fx:id="restSpinner" prefWidth="100.0"/>
+    </HBox>
+
+    <VBox spacing="10.0" alignment="CENTER" styleClass="card" VBox.vgrow="ALWAYS">
+        <Label fx:id="phaseLabel" text="ГОТОВ" styleClass="phase"/>
+        <Label fx:id="timeLabel" text="03:00" styleClass="time"/>
+        <Label fx:id="roundLabel" styleClass="stats"/>
+        <HBox spacing="10.0" alignment="CENTER">
+            <Button text="Старт" onAction="#onStart"/>
+            <Button text="Стоп" styleClass="secondary" onAction="#onStop"/>
+        </HBox>
+    </VBox>
+</VBox>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="14.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.boxing.controller.LogController">
+    <padding><Insets top="24.0" right="24.0" bottom="24.0" left="24.0"/></padding>
+
+    <Label text="Дневник тренировок" styleClass="title"/>
+    <Label fx:id="statsLabel" styleClass="stats"/>
+
+    <TableView fx:id="table" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="dateCol" text="Дата" prefWidth="110.0"/>
+            <TableColumn fx:id="titleCol" text="Тренировка" prefWidth="260.0"/>
+            <TableColumn fx:id="roundsCol" text="Раундов" prefWidth="90.0"/>
+            <TableColumn fx:id="notesCol" text="Заметки" prefWidth="300.0"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="8.0" alignment="CENTER_LEFT">
+        <ComboBox fx:id="pickBox" promptText="Тренировка"/>
+        <Label text="Раунды:"/>
+        <Spinner fx:id="roundsSpinner" prefWidth="80.0"/>
+        <TextField fx:id="notesField" promptText="Заметки (самочувствие, вес, удары...)" HBox.hgrow="ALWAYS"/>
+        <Button text="Записать" onAction="#onAdd"/>
+    </HBox>
+
+    <Button text="Удалить запись" styleClass="secondary" onAction="#onDelete"/>
+</VBox>
