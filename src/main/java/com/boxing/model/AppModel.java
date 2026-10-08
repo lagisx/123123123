@@ -15,6 +15,9 @@ public class AppModel {
 
     private final BoxingRepository repo = new BoxingRepository();
 
+
+
+
     public final ObservableList<Workout> workouts = FXCollections.observableArrayList();
     public final ObservableList<TrainingLog> logs = FXCollections.observableArrayList();
     public final StringProperty status = new SimpleStringProperty("");
@@ -50,6 +53,8 @@ public class AppModel {
         if (t.trained_on == null) t.trained_on = LocalDate.now().toString();
         Async.run(() -> { repo.add("training_logs", t); return null; }, r -> { refresh(); status.set("Записано в дневник!"); }, status::set);
     }
+
+
 
     public void deleteLog(TrainingLog t) {
         Async.run(() -> { repo.remove("training_logs", t.id); return null; }, r -> refresh(), status::set);
