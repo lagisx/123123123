@@ -1,13 +1,9 @@
-Боксёрский тренер (Java 17 + JavaFX FXML + Supabase), архитектура MVC
+Приложение для планирования, проведения и отслеживания тренировок. Пользователь может создавать собственные тренировки, выбирать упражнения, отслеживать подходы и повторения, контролировать время отдыха и анализировать свой прогресс.
 
-Структура:
-  model/       - Model: Workout, TrainingLog, AppModel (состояние приложения)
-  service/     - доступ к Supabase (SupabaseClient, BoxingRepository)
-  controller/  - Controller: Main/Workouts/Log/Timer Controller
-  resources/com/boxing/view/ - View: *.fxml + style.css (интерфейс без логики)
-  config/SupabaseConfig.java - URL и ключи
-
-Запуск:
-1. Выполните database/schema.sql в Supabase (SQL Editor).
-2. Впишите URL и ключи в config/SupabaseConfig.java
-3. mvn javafx:run
+- Возможности
+- Главный экран с информацией о текущих тренировках
+- Создание собственных тренировок
+- Добавление упражнений в тренировку
+- Отслеживание подходов и повторений
+- Таймер тренировки
+Основная цель приложения — сделать процесс тренировок удобным и структурированным, чтобы пользователь мог:
