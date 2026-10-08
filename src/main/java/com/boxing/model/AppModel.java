@@ -59,4 +59,8 @@ public class AppModel {
     public void deleteLog(TrainingLog t) {
         Async.run(() -> { repo.remove("training_logs", t.id); return null; }, r -> refresh(), status::set);
     }
+
+
+
+
 }
