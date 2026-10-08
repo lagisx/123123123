@@ -31,6 +31,10 @@ public class AppModel {
 
 
 
+
+
+
+
     public void addWorkout(Workout w) {
         Async.run(() -> { repo.add("workouts", w); return null; }, r -> refresh(), status::set);
     }
